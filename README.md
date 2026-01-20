@@ -1,7 +1,6 @@
 # Shiftai Agentic Infra Java SDK
 
 This SDK is the official gateway to the Shift AI Agentic Infra services, enabling developers to directly integrate and use agentic capabilities in their applications.
-https://www.theshiftai.in
 
 
 ## Usage
