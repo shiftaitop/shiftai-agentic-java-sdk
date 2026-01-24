@@ -59,6 +59,7 @@ public class MessagesApi {
         private String agentVersion;
         private Map<String, Object> agentMetadata;
         private String mode;
+        private UUID conversationId;
 
         public HumanMessageBuilder username(String username) {
             this.username = username;
@@ -125,6 +126,11 @@ public class MessagesApi {
             return this;
         }
 
+        public HumanMessageBuilder conversationId(UUID conversationId) {
+            this.conversationId = conversationId;
+            return this;
+        }
+
         /**
          * Build and submit the human message.
          * Validates required fields and automatically sets senderType=HUMAN, messageType=TEXT.
@@ -164,6 +170,7 @@ public class MessagesApi {
             request.setAnnotations(annotations);
             request.setSourceEvent(sourceEvent);
             request.setMode(mode);
+            request.setConversationId(conversationId);
 
             // Automatically set senderType and messageType
             request.setSenderType(SenderType.HUMAN);
@@ -205,6 +212,7 @@ public class MessagesApi {
         private String agentVersion;
         private Map<String, Object> agentMetadata;
         private String mode;
+        private UUID conversationId;
 
         public BotMessageBuilder username(String username) {
             this.username = username;
@@ -281,6 +289,11 @@ public class MessagesApi {
             return this;
         }
 
+        public BotMessageBuilder conversationId(UUID conversationId) {
+            this.conversationId = conversationId;
+            return this;
+        }
+
         /**
          * Build and submit the bot message.
          * Validates required fields and automatically sets senderType=BOT, messageType=TEXT.
@@ -328,6 +341,7 @@ public class MessagesApi {
             request.setReplyMessageId(replyMessageId);
             request.setRagContext(ragContext);
             request.setMode(mode);
+            request.setConversationId(conversationId);
 
             // Automatically set senderType and messageType
             request.setSenderType(SenderType.BOT);

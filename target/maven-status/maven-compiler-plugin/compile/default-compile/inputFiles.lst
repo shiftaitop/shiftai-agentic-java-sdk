@@ -5,6 +5,7 @@ E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sd
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\api\internal\InternalApi.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\api\MessagesApi.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\api\PlatformApi.java
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\api\SessionApi.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\api\UsersApi.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\config\ClientConfig.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\Agent.java
@@ -15,8 +16,11 @@ E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sd
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\CreateAgentRequest.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\CreateUserRequest.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\DashboardMetricsDTO.java
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\EndConversationRequest.java
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\EndConversationResponse.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\FeedbackSubmissionRequest.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\FeedbackSubmissionResponse.java
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\InitiateSessionResponse.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\MessageType.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\PlatformMessage.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\PlatformMessageSubmissionRequest.java

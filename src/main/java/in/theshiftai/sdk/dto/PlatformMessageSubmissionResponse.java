@@ -21,6 +21,8 @@ public class PlatformMessageSubmissionResponse {
     private List<WeaviateVector> similarConversations;  // Only present when senderType is HUMAN
     private Map<String, Boolean> operationStatus;  // Only present when senderType is BOT
     private String conversationTitle;  // LLM-generated conversation title
+    private String cacheResponse;  // Cached answer from cache API
+    private Boolean cacheHit;  // Whether a cache hit occurred
 
     public PlatformMessageSubmissionResponse() {}
 
@@ -40,6 +42,8 @@ public class PlatformMessageSubmissionResponse {
         private List<WeaviateVector> similarConversations;
         private Map<String, Boolean> operationStatus;
         private String conversationTitle;
+        private String cacheResponse;
+        private Boolean cacheHit;
 
         public PlatformMessageSubmissionResponseBuilder success(boolean success) { this.success = success; return this; }
         public PlatformMessageSubmissionResponseBuilder messageId(UUID messageId) { this.messageId = messageId; return this; }
@@ -51,6 +55,8 @@ public class PlatformMessageSubmissionResponse {
         public PlatformMessageSubmissionResponseBuilder similarConversations(List<WeaviateVector> similarConversations) { this.similarConversations = similarConversations; return this; }
         public PlatformMessageSubmissionResponseBuilder operationStatus(Map<String, Boolean> operationStatus) { this.operationStatus = operationStatus; return this; }
         public PlatformMessageSubmissionResponseBuilder conversationTitle(String conversationTitle) { this.conversationTitle = conversationTitle; return this; }
+        public PlatformMessageSubmissionResponseBuilder cacheResponse(String cacheResponse) { this.cacheResponse = cacheResponse; return this; }
+        public PlatformMessageSubmissionResponseBuilder cacheHit(Boolean cacheHit) { this.cacheHit = cacheHit; return this; }
 
         public PlatformMessageSubmissionResponse build() {
             PlatformMessageSubmissionResponse response = new PlatformMessageSubmissionResponse();
@@ -64,6 +70,8 @@ public class PlatformMessageSubmissionResponse {
             response.similarConversations = this.similarConversations;
             response.operationStatus = this.operationStatus;
             response.conversationTitle = this.conversationTitle;
+            response.cacheResponse = this.cacheResponse;
+            response.cacheHit = this.cacheHit;
             return response;
         }
     }
@@ -98,4 +106,10 @@ public class PlatformMessageSubmissionResponse {
 
     public String getConversationTitle() { return conversationTitle; }
     public void setConversationTitle(String conversationTitle) { this.conversationTitle = conversationTitle; }
+
+    public String getCacheResponse() { return cacheResponse; }
+    public void setCacheResponse(String cacheResponse) { this.cacheResponse = cacheResponse; }
+
+    public Boolean getCacheHit() { return cacheHit; }
+    public void setCacheHit(Boolean cacheHit) { this.cacheHit = cacheHit; }
 }

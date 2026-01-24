@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"in.theshiftai.sdk"},{"l":"in.theshiftai.sdk.api"},{"l":"in.theshiftai.sdk.api.internal"},{"l":"in.theshiftai.sdk.config"},{"l":"in.theshiftai.sdk.dto"},{"l":"in.theshiftai.sdk.http"}];updateSearchResults();

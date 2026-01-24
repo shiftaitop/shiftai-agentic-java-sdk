@@ -43,6 +43,8 @@ public class PlatformMessageSubmissionRequest {
 
     private String mode;
 
+    private UUID conversationId;
+
     // Getters and setters
     public String getUserName() { return userName; }
     public void setUserName(String userName) { this.userName = userName; }
@@ -85,4 +87,7 @@ public class PlatformMessageSubmissionRequest {
 
     public String getMode() { return mode; }
     public void setMode(String mode) { this.mode = mode; }
+
+    public UUID getConversationId() { return conversationId; }
+    public void setConversationId(UUID conversationId) { this.conversationId = conversationId; }
 }

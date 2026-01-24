@@ -115,6 +115,35 @@ PlatformMessageSubmissionResponse msgResponse = client.messages()
 System.out.println("Message ID: " + msgResponse.getMessageId());
 ```
 
+## Session Management
+
+```java
+// Start a new conversation session explicitly
+InitiateSessionResponse session = client.sessions()
+    .initiateSession()
+    .get();
+
+System.out.println("New conversation: " + session.getConversationId());
+
+// Send messages in the specific conversation
+client.messages().sendHumanMessage()
+    .username("john")
+    .message("Hello")
+    .agentName("Bot")
+    .agentPlatform("OpenAI")
+    .agentVersion("gpt-4")
+    .userEmail("john@example.com")
+    .conversationId(session.getConversationId())  // Use explicit conversation
+    .build();
+
+// End the conversation when done
+EndConversationResponse result = client.sessions()
+    .endConversation(session.getConversationId())
+    .get();
+
+System.out.println("Session ended: " + result.isSuccess());
+```
+
 ## Features
 
 - Builder pattern for message submission
@@ -164,6 +193,7 @@ Send a human message using the builder pattern.
 - `agentVersion(String agentVersion)` - **Optional**: Agent version/model (e.g., "gpt-4", "claude-2") - **Required in database**
 - `agentMetadata(Map<String, Object> agentMetadata)` - **Optional**: Agent configuration data (e.g., `Map.of("temperature", 0.7, "max_tokens", 1000)`)
 - `mode(String mode)` - **Optional**: Mode identifier for the message. Allowed values: `"SIMPLE"` or `"EXPAND"`
+- `conversationId(UUID conversationId)` - **Optional**: ID of the conversation to store the message in. If not provided, a new conversation will be created automatically. If provided, the conversation must belong to your tenant and be active.
 
 **Return Type:** `CompletableFuture<PlatformMessageSubmissionResponse>`
 
@@ -210,6 +240,7 @@ Send a bot response using the builder pattern.
 - `agentVersion(String agentVersion)` - **Optional**: Agent version/model - **Required in database**
 - `agentMetadata(Map<String, Object> agentMetadata)` - **Optional**: Agent configuration
 - `mode(String mode)` - **Optional**: Mode identifier for the message. Allowed values: `"SIMPLE"` or `"EXPAND"`
+- `conversationId(UUID conversationId)` - **Optional**: ID of the conversation to store the message in. For BOT messages, the conversation is determined from replyMessageId and this field is ignored.
 
 **Return Type:** `CompletableFuture<PlatformMessageSubmissionResponse>`
 
@@ -345,6 +376,45 @@ Get all conversations for a specific user.
 - `username` (String, **required**): Username to filter conversations by
 
 **Return Type:** `CompletableFuture<List<ConversationSummaryResponse>>`
+
+### Session API
+
+#### `initiateSession()`
+Initiate a new conversation session.
+
+**Purpose:** Creates a new conversation and returns the conversation ID. This is useful when you want to explicitly start a conversation before sending the first message.
+
+**Parameters:** None
+
+**Return Type:** `CompletableFuture<InitiateSessionResponse>`
+
+**Example:**
+```java
+InitiateSessionResponse session = client.sessions()
+    .initiateSession()
+    .get();
+
+System.out.println("New conversation ID: " + session.getConversationId());
+```
+
+#### `endConversation(UUID conversationId)`
+End a conversation session.
+
+**Purpose:** Marks the conversation as ended and triggers evaluation metrics. Only the conversation owner (tenant) can end their conversations.
+
+**Parameters:**
+- `conversationId` (UUID, **required**): Conversation identifier to end
+
+**Return Type:** `CompletableFuture<EndConversationResponse>`
+
+**Example:**
+```java
+EndConversationResponse result = client.sessions()
+    .endConversation(conversationId)
+    .get();
+
+System.out.println("Conversation ended: " + result.isSuccess());
+```
 
 ### Internal API (TruLens)
 

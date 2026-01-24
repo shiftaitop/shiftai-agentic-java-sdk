@@ -21,6 +21,12 @@ public class ConversationSummaryResponse {
     private Instant endTime;
     private String conversationTitle;  // LLM-generated conversation title
 
+    @JsonProperty("userId")
+    private String userId;
+
+    @JsonProperty("agentId")
+    private String agentId;
+
     public ConversationSummaryResponse() {}
 
     // Getters and setters
@@ -41,4 +47,10 @@ public class ConversationSummaryResponse {
 
     public String getConversationTitle() { return conversationTitle; }
     public void setConversationTitle(String conversationTitle) { this.conversationTitle = conversationTitle; }
+
+    public String getUserId() { return userId; }
+    public void setUserId(String userId) { this.userId = userId; }
+
+    public String getAgentId() { return agentId; }
+    public void setAgentId(String agentId) { this.agentId = agentId; }
 }

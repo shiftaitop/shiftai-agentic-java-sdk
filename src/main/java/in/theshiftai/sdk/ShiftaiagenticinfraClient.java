@@ -4,6 +4,7 @@ import in.theshiftai.sdk.api.*;
 import in.theshiftai.sdk.api.internal.InternalApi;
 import in.theshiftai.sdk.config.ClientConfig;
 import in.theshiftai.sdk.http.HttpClient;
+import in.theshiftai.sdk.api.SessionApi;
 
 /**
  * Main client for Shiftai Agentic Infra SDK.
@@ -17,6 +18,7 @@ public class ShiftaiagenticinfraClient {
     private final AgentsApi agentsApi;
     private final AnalyticsApi analyticsApi;
     private final ConversationsApi conversationsApi;
+    private final SessionApi sessionApi;
     private final InternalApi internalApi;
 
     private ShiftaiagenticinfraClient(ClientConfig config) {
@@ -27,6 +29,7 @@ public class ShiftaiagenticinfraClient {
         this.agentsApi = new AgentsApi(httpClient);
         this.analyticsApi = new AnalyticsApi(httpClient);
         this.conversationsApi = new ConversationsApi(httpClient);
+        this.sessionApi = new SessionApi(httpClient);
         this.internalApi = new InternalApi(httpClient);
     }
 
@@ -70,6 +73,13 @@ public class ShiftaiagenticinfraClient {
      */
     public ConversationsApi conversations() {
         return conversationsApi;
+    }
+
+    /**
+     * Get session API for session management operations.
+     */
+    public SessionApi sessions() {
+        return sessionApi;
     }
 
     /**
