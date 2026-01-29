@@ -17,7 +17,14 @@ This SDK is the official gateway to the Shift AI Agentic Infra services, enablin
   <a href="https://x.com/shift_ai_first">
     <img src="https://img.shields.io/badge/X(Twitter)-@shift__ai__first-black?style=for-the-badge&logo=x">
   </a>
+  <a href="https://www.reddit.com/user/TheShiftAI/">
+    <img src="https://img.shields.io/badge/Reddit-TheShiftAI-FF4500?style=for-the-badge&logo=reddit">
+  </a>
+  <a href="https://substack.com/@shiftaifirst">
+    <img src="https://img.shields.io/badge/Substack-ShiftAI-orange?style=for-the-badge&logo=substack">
+  </a>
 </p>
+
 
 **ShiftAI** is an AI infrastructure and consulting company focused on building
 **production-ready AI systems** that help organizations transform business
@@ -34,6 +41,8 @@ AI-driven systems that move beyond experimentation into real-world production.
 - 🐙 GitHub Organization: https://github.com/shiftaitop  
 - 💼 LinkedIn (Company): https://www.linkedin.com/company/theshiftai-in/  
 - 🐦 Twitter (X): https://x.com/shift_ai_first  
+- 🔗 Reddit: https://www.reddit.com/user/TheShiftAI/  
+- ✍️ Substack: https://substack.com/@shiftaifirst  
 
 ### Founder
 - **Suresh Gokarakonda**

@@ -19,11 +19,11 @@
 -docencoding
 'UTF-8'
 -doctitle
-'ShiftAI Agentic Infra Java SDK 0.0.2 API'
+'ShiftAI Agentic Infra Java SDK 0.0.4 API'
 -use
 -version
 -windowtitle
-'ShiftAI Agentic Infra Java SDK 0.0.2 API'
+'ShiftAI Agentic Infra Java SDK 0.0.4 API'
 in.theshiftai.sdk.api
 in.theshiftai.sdk.api.internal
 in.theshiftai.sdk.config
@@ -33,32 +33,32 @@ in.theshiftai.sdk
 C:\Users\tsama\.m2\repository\com\squareup\okhttp3\okhttp\4.12.0\okhttp-4.12.0.jar = 1757050984204
 C:\Users\tsama\.m2\repository\com\squareup\okio\okio\3.6.0\okio-3.6.0.jar = 1765260310090
 C:\Users\tsama\.m2\repository\com\squareup\okio\okio-jvm\3.6.0\okio-jvm-3.6.0.jar = 1765260310668
-C:\Users\tsama\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-common\1.9.10\kotlin-stdlib-common-1.9.10.jar = 1767416449215
-C:\Users\tsama\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk8\1.8.21\kotlin-stdlib-jdk8-1.8.21.jar = 1767416449194
-C:\Users\tsama\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.8.21\kotlin-stdlib-1.8.21.jar = 1767416449299
+C:\Users\tsama\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-common\1.9.10\kotlin-stdlib-common-1.9.10.jar = 1769060337120
+C:\Users\tsama\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk8\1.8.21\kotlin-stdlib-jdk8-1.8.21.jar = 1769060337201
+C:\Users\tsama\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.8.21\kotlin-stdlib-1.8.21.jar = 1769060337370
 C:\Users\tsama\.m2\repository\org\jetbrains\annotations\13.0\annotations-13.0.jar = 1757050984158
-C:\Users\tsama\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk7\1.8.21\kotlin-stdlib-jdk7-1.8.21.jar = 1767416449236
-C:\Users\tsama\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.2\jackson-databind-2.17.2.jar = 1767593497566
-C:\Users\tsama\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.2\jackson-annotations-2.17.2.jar = 1767593497636
-C:\Users\tsama\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.2\jackson-core-2.17.2.jar = 1767593497795
-C:\Users\tsama\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.17.2\jackson-datatype-jsr310-2.17.2.jar = 1767593589920
-C:\Users\tsama\.m2\repository\org\slf4j\slf4j-api\2.0.9\slf4j-api-2.0.9.jar = 1761132229187
+C:\Users\tsama\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk7\1.8.21\kotlin-stdlib-jdk7-1.8.21.jar = 1769060337507
+C:\Users\tsama\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.2\jackson-databind-2.17.2.jar = 1769060337654
+C:\Users\tsama\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.2\jackson-annotations-2.17.2.jar = 1769060337758
+C:\Users\tsama\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.2\jackson-core-2.17.2.jar = 1769060337877
+C:\Users\tsama\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.17.2\jackson-datatype-jsr310-2.17.2.jar = 1769060337986
+C:\Users\tsama\.m2\repository\org\slf4j\slf4j-api\2.0.9\slf4j-api-2.0.9.jar = 1769060338097
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java = 1767962597298
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\generated-sources\annotations = 1768903733829
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\allclasses-index.html = 1768903742886
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\allpackages-index.html = 1768903742891
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\element-list = 1768903742150
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\help-doc.html = 1768903742994
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\index-all.html = 1768903742978
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\index.html = 1768903742787
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\jquery-ui.overrides.css = 1768903743013
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\member-search-index.js = 1768903742900
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\module-search-index.js = 1768903742894
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\overview-summary.html = 1768903742983
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\overview-tree.html = 1768903742770
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\package-search-index.js = 1768903742897
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\script.js = 1768903742997
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\search.js = 1768903743001
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\stylesheet.css = 1768903742996
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\tag-search-index.js = 1768903742901
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\type-search-index.js = 1768903742898
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\generated-sources\annotations = 1769247947848
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\allclasses-index.html = 1769248037289
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\allpackages-index.html = 1769248037297
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\element-list = 1769248036535
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\help-doc.html = 1769248037424
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\index-all.html = 1769248037407
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\index.html = 1769248037169
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\jquery-ui.overrides.css = 1769248037440
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\member-search-index.js = 1769248037315
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\module-search-index.js = 1769248037300
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\overview-summary.html = 1769248037413
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\overview-tree.html = 1769248037151
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\package-search-index.js = 1769248037302
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\script.js = 1769248037428
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\search.js = 1769248037431
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\stylesheet.css = 1769248037427
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\tag-search-index.js = 1769248037316
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\type-search-index.js = 1769248037304
