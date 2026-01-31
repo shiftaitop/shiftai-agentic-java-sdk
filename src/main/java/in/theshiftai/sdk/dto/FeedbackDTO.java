@@ -1,25 +1,27 @@
 package in.theshiftai.sdk.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.time.Instant;
 import java.util.UUID;
 
 /**
- * Request body for submitting feedback on a BOT message.
+ * DTO for feedback data returned by feedback retrieval API.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class FeedbackSubmissionRequest {
-    private UUID messageId;
+public class FeedbackDTO {
+    private UUID id;
     private String feedbackTitle;
     private String feedback;
     private Boolean liked;
     private Boolean disliked;
     private Boolean regeneration;
+    private Instant submittedAt;
 
-    public FeedbackSubmissionRequest() {}
+    public FeedbackDTO() {}
 
     // Getters and setters
-    public UUID getMessageId() { return messageId; }
-    public void setMessageId(UUID messageId) { this.messageId = messageId; }
+    public UUID getId() { return id; }
+    public void setId(UUID id) { this.id = id; }
 
     public String getFeedbackTitle() { return feedbackTitle; }
     public void setFeedbackTitle(String feedbackTitle) { this.feedbackTitle = feedbackTitle; }
@@ -35,4 +37,7 @@ public class FeedbackSubmissionRequest {
 
     public Boolean getRegeneration() { return regeneration; }
     public void setRegeneration(Boolean regeneration) { this.regeneration = regeneration; }
+
+    public Instant getSubmittedAt() { return submittedAt; }
+    public void setSubmittedAt(Instant submittedAt) { this.submittedAt = submittedAt; }
 }

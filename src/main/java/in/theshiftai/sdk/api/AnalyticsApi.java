@@ -45,9 +45,10 @@ public class AnalyticsApi {
      */
     public class FeedbackBuilder {
         private UUID messageId;
-        private Boolean like;
-        private Boolean dislike;
+        private String feedbackTitle;
         private String feedback;
+        private Boolean liked;
+        private Boolean disliked;
         private Boolean regeneration;
 
         public FeedbackBuilder messageId(UUID messageId) {
@@ -55,18 +56,23 @@ public class AnalyticsApi {
             return this;
         }
 
-        public FeedbackBuilder like(Boolean like) {
-            this.like = like;
-            return this;
-        }
-
-        public FeedbackBuilder dislike(Boolean dislike) {
-            this.dislike = dislike;
+        public FeedbackBuilder feedbackTitle(String feedbackTitle) {
+            this.feedbackTitle = feedbackTitle;
             return this;
         }
 
         public FeedbackBuilder feedback(String feedback) {
             this.feedback = feedback;
+            return this;
+        }
+
+        public FeedbackBuilder liked(Boolean liked) {
+            this.liked = liked;
+            return this;
+        }
+
+        public FeedbackBuilder disliked(Boolean disliked) {
+            this.disliked = disliked;
             return this;
         }
 
@@ -87,13 +93,20 @@ public class AnalyticsApi {
             if (messageId == null) {
                 throw new IllegalArgumentException("messageId is required");
             }
+            if (feedbackTitle == null || feedbackTitle.trim().isEmpty()) {
+                throw new IllegalArgumentException("feedbackTitle is required");
+            }
+            if (feedback == null || feedback.trim().isEmpty()) {
+                throw new IllegalArgumentException("feedback is required");
+            }
 
             // Build request
             FeedbackSubmissionRequest request = new FeedbackSubmissionRequest();
             request.setMessageId(messageId);
-            request.setLike(like);
-            request.setDislike(dislike);
+            request.setFeedbackTitle(feedbackTitle);
             request.setFeedback(feedback);
+            request.setLiked(liked);
+            request.setDisliked(disliked);
             request.setRegeneration(regeneration);
 
             // Submit request
@@ -178,5 +191,17 @@ public class AnalyticsApi {
      */
     public CompletableFuture<Map<String, Object>> initialize() {
         return httpClient.postMapWithoutAuth("/api/analytics/initialize", null);
+    }
+
+    /**
+     * Get all feedback submissions for a specific BOT message.
+     * GET /api/analytics/messages/{messageId}/feedback
+     *
+     * @param messageId UUID of the BOT message
+     * @return CompletableFuture with list of feedback entries, ordered by most recent first
+     */
+    public CompletableFuture<List<FeedbackDTO>> getMessageFeedback(UUID messageId) {
+        httpClient.ensureAuthenticated();
+        return httpClient.getList("/api/analytics/messages/" + messageId + "/feedback", FeedbackDTO.class);
     }
 }

@@ -18,6 +18,7 @@ E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sd
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\DashboardMetricsDTO.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\EndConversationRequest.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\EndConversationResponse.java
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\FeedbackDTO.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\FeedbackSubmissionRequest.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\FeedbackSubmissionResponse.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\InitiateSessionResponse.java

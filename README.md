@@ -309,12 +309,30 @@ Submit feedback on a bot message.
 **Parameters:**
 - `request` (FeedbackSubmissionRequest, **required**): Feedback request with:
   - `messageId` (UUID, **required**): Bot message ID receiving feedback
-  - `like` (Integer, **optional**): Like indicator (1/0/null)
-  - `dislike` (Integer, **optional**): Dislike indicator (1/0/null)
-  - `feedback` (String, **optional**): Text feedback (e.g., "Too verbose")
+  - `feedbackTitle` (String, **required**): Title for the feedback (e.g., "Response Quality Issue")
+  - `feedback` (String, **required**): Text feedback content
+  - `liked` (Boolean, **optional**): Like rating (true/false/null)
+  - `disliked` (Boolean, **optional**): Dislike rating (true/false/null)
   - `regeneration` (Boolean, **optional**): Regeneration requested
 
 **Return Type:** `CompletableFuture<FeedbackSubmissionResponse>`
+
+#### `getMessageFeedback(UUID messageId)`
+Get all feedback submissions for a specific bot message.
+
+**Parameters:**
+- `messageId` (UUID, **required**): Bot message ID to retrieve feedback for
+
+**Return Type:** `CompletableFuture<List<FeedbackDTO>>`
+
+**Returns:** List of feedback entries ordered by most recent first, containing:
+- `id` (UUID): Unique feedback entry ID
+- `feedbackTitle` (String): Feedback title
+- `feedback` (String): Feedback content
+- `liked` (Boolean): Like rating
+- `disliked` (Boolean): Dislike rating
+- `regeneration` (Boolean): Regeneration requested
+- `submittedAt` (Instant): Timestamp when feedback was submitted
 
 #### `getDashboard()`
 Get project dashboard metrics.
