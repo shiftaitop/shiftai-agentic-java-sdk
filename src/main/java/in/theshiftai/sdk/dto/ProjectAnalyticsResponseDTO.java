@@ -1,6 +1,7 @@
 package in.theshiftai.sdk.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +19,9 @@ public class ProjectAnalyticsResponseDTO {
     private Integer likes;
     private Integer dislikes;
     private Integer regenerates;
+    private Long cacheServed;
+    private Long estimatedTokensSaved;
+    private BigDecimal estimatedCostSaved;
     private List<Map<String, Object>> topUserActivity;
     private List<Map<String, Object>> topDevicesByUsage;
 
@@ -50,6 +54,15 @@ public class ProjectAnalyticsResponseDTO {
 
     public Integer getRegenerates() { return regenerates; }
     public void setRegenerates(Integer regenerates) { this.regenerates = regenerates; }
+
+    public Long getCacheServed() { return cacheServed; }
+    public void setCacheServed(Long cacheServed) { this.cacheServed = cacheServed; }
+
+    public Long getEstimatedTokensSaved() { return estimatedTokensSaved; }
+    public void setEstimatedTokensSaved(Long estimatedTokensSaved) { this.estimatedTokensSaved = estimatedTokensSaved; }
+
+    public BigDecimal getEstimatedCostSaved() { return estimatedCostSaved; }
+    public void setEstimatedCostSaved(BigDecimal estimatedCostSaved) { this.estimatedCostSaved = estimatedCostSaved; }
 
     public List<Map<String, Object>> getTopUserActivity() { return topUserActivity; }
     public void setTopUserActivity(List<Map<String, Object>> topUserActivity) { this.topUserActivity = topUserActivity; }

@@ -407,4 +407,19 @@ public class MessagesApi {
         httpClient.ensureAuthenticated();
         return httpClient.getList("/api/platform/messages/agent/" + agentId, PlatformMessage.class);
     }
+
+    /**
+     * Soft-delete a BOT message and its paired HUMAN message.
+     * POST /api/platform/messages/delete
+     *
+     * Idempotent if the message is already deleted. Tenant-scoped via Api-Key.
+     *
+     * @param messageId UUID of the BOT message to soft-delete
+     * @return CompletableFuture with map containing success, message, timestamp (or error, message, status, timestamp on failure)
+     */
+    public CompletableFuture<Map<String, Object>> deleteMessage(UUID messageId) {
+        httpClient.ensureAuthenticated();
+        DeleteMessageRequest request = new DeleteMessageRequest(messageId);
+        return httpClient.postMap("/api/platform/messages/delete", request);
+    }
 }

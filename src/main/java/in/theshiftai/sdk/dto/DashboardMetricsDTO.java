@@ -1,6 +1,7 @@
 package in.theshiftai.sdk.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.math.BigDecimal;
 
 /**
  * Dashboard metrics DTO.
@@ -16,6 +17,9 @@ public class DashboardMetricsDTO {
     private Integer likes;
     private Integer dislikes;
     private Integer regenerates;
+    private Long cacheServed;
+    private Long estimatedTokensSaved;
+    private BigDecimal estimatedCostSaved;
 
     public DashboardMetricsDTO() {}
 
@@ -46,4 +50,13 @@ public class DashboardMetricsDTO {
 
     public Integer getRegenerates() { return regenerates; }
     public void setRegenerates(Integer regenerates) { this.regenerates = regenerates; }
+
+    public Long getCacheServed() { return cacheServed; }
+    public void setCacheServed(Long cacheServed) { this.cacheServed = cacheServed; }
+
+    public Long getEstimatedTokensSaved() { return estimatedTokensSaved; }
+    public void setEstimatedTokensSaved(Long estimatedTokensSaved) { this.estimatedTokensSaved = estimatedTokensSaved; }
+
+    public BigDecimal getEstimatedCostSaved() { return estimatedCostSaved; }
+    public void setEstimatedCostSaved(BigDecimal estimatedCostSaved) { this.estimatedCostSaved = estimatedCostSaved; }
 }

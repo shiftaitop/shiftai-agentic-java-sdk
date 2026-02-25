@@ -160,6 +160,38 @@ public class HttpClient {
     }
 
     /**
+     * Execute POST request with API key authentication, returning raw Map.
+     * Use for endpoints that return a generic map (e.g. success, message, timestamp).
+     */
+    public CompletableFuture<Map<String, Object>> postMap(String path, Object requestBody) {
+        return CompletableFuture.supplyAsync(() -> {
+            try {
+                String jsonBody = requestBody != null ? objectMapper.writeValueAsString(requestBody) : "{}";
+                RequestBody body = RequestBody.create(jsonBody, JSON);
+                Request request = new Request.Builder()
+                        .url(baseUrl + path)
+                        .addHeader("Api-Key", apiKey != null ? apiKey : "")
+                        .post(body)
+                        .build();
+
+                try (Response response = client.newCall(request).execute()) {
+                    if (!response.isSuccessful()) {
+                        throw new RuntimeException("HTTP error: " + response.code());
+                    }
+                    if (response.body() != null) {
+                        String json = response.body().string();
+                        return objectMapper.readValue(json, new TypeReference<Map<String, Object>>() {});
+                    }
+                    return Map.of();
+                }
+            } catch (Exception e) {
+                log.error("Error executing POST request to {}", path, e);
+                throw new RuntimeException("IO error: " + e.getMessage(), e);
+            }
+        });
+    }
+
+    /**
      * Execute POST request returning raw Map (admin - no auth required)
      */
     public CompletableFuture<Map<String, Object>> postMapWithoutAuth(String path, Object requestBody) {

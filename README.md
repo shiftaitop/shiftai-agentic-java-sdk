@@ -274,6 +274,18 @@ Get all messages sent by a specific agent.
 
 **Return Type:** `CompletableFuture<List<PlatformMessage>>`
 
+#### `deleteMessage(UUID messageId)`
+delete a BOT message and its paired HUMAN message.
+
+**Parameters:**
+- `messageId` (UUID, **required**): ID of the BOT message to soft-delete
+
+**Return Type:** `CompletableFuture<Map<String, Object>>`
+
+**Response (success):** Map with `success`, `message`, `timestamp`.  
+**Response (error):** Map with `error`, `message`, `status`, `timestamp`.  
+Idempotent if the message is already deleted. Tenant-scoped via Api-Key.
+
 ### Users API
 
 #### `createUser(CreateUserRequest request)`
@@ -302,6 +314,8 @@ Create a new AI agent.
 **Return Type:** `CompletableFuture<Agent>`
 
 ### Analytics API
+
+**Cache analytics:** When the backend has cache-hit data, `DashboardMetricsDTO`, `UserAnalyticsDTO`, and `ProjectAnalyticsResponseDTO` may include optional fields: `cacheServed` (Long), `estimatedTokensSaved` (Long), `estimatedCostSaved` (BigDecimal). No new endpoints; existing methods (`getDashboard()`, `getUserAnalytics()`, `getProjectData()`) return these when present.
 
 #### `submitFeedback(FeedbackSubmissionRequest request)`
 Submit feedback on a bot message.
