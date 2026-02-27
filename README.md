@@ -418,6 +418,27 @@ Get all conversations for a specific user.
 
 **Return Type:** `CompletableFuture<List<ConversationSummaryResponse>>`
 
+#### `getConversationsByEmail(String email)`
+Fetch all conversations for a user by their email address. Use this when you identify users by email instead of username—you get the same list of conversations (IDs, start/end times, agent, title, etc.) for that user. If you get a 403, it means that email is not in your project or belongs to another tenant.
+
+**Parameters:**
+- `email` (String, **required**): The user’s email (cannot be null or blank)
+
+**Return Type:** `CompletableFuture<List<ConversationSummaryResponse>>`
+
+**Note:** 403 = user not in this project or belongs to another tenant (not a generic auth failure).
+
+#### `deleteConversation(UUID conversationId)`
+Remove a conversation. Once the call succeeds, that conversation is no longer available—it won’t show up in conversation lists and fetching it may return 404. Use this when a user wants to delete a chat or you need to clean up old conversations.
+
+**Parameters:**
+- `conversationId` (UUID, **required**): The conversation to remove
+
+**Return Type:** `CompletableFuture<Map<String, Object>>`
+
+**On success:** Map with `success`, `message`, `timestamp`.  
+**On error:** Map with `error`, `message`, `status`, `timestamp`.
+
 ### Session API
 
 #### `initiateSession()`

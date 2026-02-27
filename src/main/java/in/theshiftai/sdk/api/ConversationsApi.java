@@ -1,7 +1,9 @@
 package in.theshiftai.sdk.api;
 
-import in.theshiftai.sdk.dto.ConversationSummaryResponse;
 import in.theshiftai.sdk.dto.ConversationMessageResponse;
+import in.theshiftai.sdk.dto.ConversationSummaryResponse;
+import in.theshiftai.sdk.dto.DeleteConversationRequest;
+import in.theshiftai.sdk.dto.GetConversationsByEmailRequest;
 import in.theshiftai.sdk.http.HttpClient;
 
 import java.util.HashMap;
@@ -73,5 +75,44 @@ public class ConversationsApi {
         request.put("username", username.trim());
 
         return httpClient.postList("/api/platform/conversations/user", request, ConversationSummaryResponse.class);
+    }
+
+    /**
+     * Get all conversations for a user by email within the authenticated project.
+     * POST /api/platform/conversations/email
+     *
+     * Returns the same summary shape as get-by-username (conversationId, startedAt, endedAt, userId, username, agentId, agentName, conversationTitle).
+     * 403 indicates the user is not in this project or belongs to another tenant (not a generic auth failure).
+     *
+     * @param email User email to retrieve conversations for (required, non-blank)
+     * @return CompletableFuture with list of conversation summaries for the user
+     * @throws IllegalArgumentException if email is null or blank
+     */
+    public CompletableFuture<List<ConversationSummaryResponse>> getConversationsByEmail(String email) {
+        if (email == null || email.trim().isEmpty()) {
+            throw new IllegalArgumentException("email is required");
+        }
+        httpClient.ensureAuthenticated();
+        GetConversationsByEmailRequest request = new GetConversationsByEmailRequest(email.trim());
+        return httpClient.postList("/api/platform/conversations/email", request, ConversationSummaryResponse.class);
+    }
+
+    /**
+     * Delete a conversation.
+     * POST /api/platform/conversation/delete
+     *
+     * After a successful call, the conversation is gone: listing or fetching it will not return it (or may return 404).
+     *
+     * @param conversationId UUID of the conversation to delete (required)
+     * @return CompletableFuture with map: success (true), message, timestamp; or on error: error, message, status, timestamp
+     * @throws IllegalArgumentException if conversationId is null
+     */
+    public CompletableFuture<Map<String, Object>> deleteConversation(UUID conversationId) {
+        if (conversationId == null) {
+            throw new IllegalArgumentException("conversationId is required");
+        }
+        httpClient.ensureAuthenticated();
+        DeleteConversationRequest request = new DeleteConversationRequest(conversationId);
+        return httpClient.postMap("/api/platform/conversation/delete", request);
     }
 }

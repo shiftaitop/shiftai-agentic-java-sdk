@@ -15,6 +15,7 @@ in\theshiftai\sdk\dto\TopUserDTO.class
 in\theshiftai\sdk\http\HttpClient$1.class
 in\theshiftai\sdk\dto\PlatformMessage.class
 in\theshiftai\sdk\dto\PlatformMessageSubmissionRequest.class
+in\theshiftai\sdk\dto\DeleteConversationRequest.class
 in\theshiftai\sdk\dto\DeleteMessageRequest.class
 in\theshiftai\sdk\config\ClientConfig$Builder.class
 in\theshiftai\sdk\dto\InitiateSessionResponse.class
@@ -26,6 +27,7 @@ in\theshiftai\sdk\dto\Agent.class
 in\theshiftai\sdk\dto\ConversationMessage.class
 in\theshiftai\sdk\api\MessagesApi.class
 in\theshiftai\sdk\dto\PlatformRegistrationResponse.class
+in\theshiftai\sdk\dto\GetConversationsByEmailRequest.class
 in\theshiftai\sdk\dto\SenderType.class
 in\theshiftai\sdk\dto\ConversationMessageResponse.class
 in\theshiftai\sdk\api\AgentsApi.class
