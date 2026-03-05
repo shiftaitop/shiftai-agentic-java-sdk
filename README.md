@@ -192,8 +192,8 @@ Send a human message using the builder pattern.
 - `username(String username)` - **Required**: User identifier (e.g., "john_doe", "user123")
 - `message(String message)` - **Required**: The actual message content (e.g., "Hello, how can I help you?")
 - `agentName(String agentName)` - **Required**: Target agent name (e.g., "SupportBot", "GPT-4")
-- `agentPlatform(String agentPlatform)` - **Required**: Agent platform/provider (e.g., "OpenAI", "Azure", "Anthropic")
-- `userEmail(String userEmail)` - **Required**: User's email address for identification (e.g., "john@example.com")
+- `agentPlatform(String agentPlatform)` - **Optional**: Agent platform/provider (e.g., "OpenAI", "Azure"). When omitted, backend finds/creates agent by name and project only.
+- `userEmail(String userEmail)` - **Required**: User's email address (backend returns 400 "User email is required for message submission" if missing or blank)
 - `userMetadata(Map<String, Object> userMetadata)` - **Optional**: Custom user attributes (e.g., `Map.of("role", "premium", "subscription", "gold")`)
 - `intent(String intent)` - **Optional**: Message intent classification (e.g., "question", "complaint", "request")
 - `entities(Map<String, Object> entities)` - **Optional**: Extracted named entities (e.g., `Map.of("person", "John", "location", "New York")`)
@@ -226,7 +226,7 @@ client.messages().sendHumanMessage()
 Low-level message submission with full control.
 
 **Parameters:**
-- `request` (PlatformMessageSubmissionRequest, **required**): Complete message request object with all required fields
+- `request` (PlatformMessageSubmissionRequest, **required**): Complete message request object. User email is required (non-blank); throws if missing.
 
 **Return Type:** `CompletableFuture<PlatformMessageSubmissionResponse>`
 
@@ -237,10 +237,10 @@ Send a bot response using the builder pattern.
 - `username(String username)` - **Required**: User identifier (must match the human message sender)
 - `message(String message)` - **Required**: Bot response content (e.g., "I can help you with that!")
 - `agentName(String agentName)` - **Required**: Agent name (must match the human message agent)
-- `agentPlatform(String agentPlatform)` - **Required**: Agent platform (must match the human message platform)
+- `agentPlatform(String agentPlatform)` - **Optional**: Agent platform. When omitted, backend finds/creates agent by name and project only.
 - `replyMessageId(UUID replyMessageId)` - **Required**: ID of the human message being replied to
 - `ragContext(String ragContext)` - **Required**: RAG context used for generating the response
-- `userEmail(String userEmail)` - **Required**: User's email address for identification
+- `userEmail(String userEmail)` - **Required**: User's email address (required for message submission; backend returns 400 if missing or blank)
 - `userMetadata(Map<String, Object> userMetadata)` - **Optional**: User metadata
 - `intent(String intent)` - **Optional**: Response intent
 - `entities(Map<String, Object> entities)` - **Optional**: Extracted entities from response
@@ -347,6 +347,16 @@ Get all feedback submissions for a specific bot message.
 - `disliked` (Boolean): Dislike rating
 - `regeneration` (Boolean): Regeneration requested
 - `submittedAt` (Instant): Timestamp when feedback was submitted
+
+#### `getLatestFeedbacks(Integer timeperiodHours)`
+Get latest feedbacks. Backend may return either an object or a raw array; the SDK normalizes to one response shape.
+
+**Parameters:**
+- `timeperiodHours` (Integer, **optional**): null = all feedbacks; N = last N hours (e.g. 24)
+
+**Return Type:** `CompletableFuture<LatestFeedbacksResponse>`
+
+**Returns:** `LatestFeedbacksResponse` with optional `message` and `feedbacks` list. Each item has: messageId, username, agentName, conversationId, sender, message (human query), feedbackTitle, feedback, context, time (ISO 8601 string).
 
 #### `getDashboard()`
 Get project dashboard metrics.

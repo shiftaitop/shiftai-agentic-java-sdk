@@ -204,4 +204,17 @@ public class AnalyticsApi {
         httpClient.ensureAuthenticated();
         return httpClient.getList("/api/analytics/messages/" + messageId + "/feedback", FeedbackDTO.class);
     }
+
+    /**
+     * Get latest feedbacks. Backend may return either an object or a raw array; response is normalized to one shape.
+     * POST /api/platform/feedbacks/latest
+     *
+     * @param timeperiodHours null = all feedbacks; N = last N hours (e.g. 24)
+     * @return CompletableFuture with message (optional) and feedbacks list (empty if none)
+     */
+    public CompletableFuture<LatestFeedbacksResponse> getLatestFeedbacks(Integer timeperiodHours) {
+        httpClient.ensureAuthenticated();
+        Object body = timeperiodHours == null ? Map.of() : Map.of("timeperiod", timeperiodHours);
+        return httpClient.postForLatestFeedbacks("/api/platform/feedbacks/latest", body);
+    }
 }

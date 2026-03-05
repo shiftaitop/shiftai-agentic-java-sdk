@@ -149,14 +149,11 @@ public class MessagesApi {
             if (agentName == null || agentName.trim().isEmpty()) {
                 throw new IllegalArgumentException("agentName is required");
             }
-            if (agentPlatform == null || agentPlatform.trim().isEmpty()) {
-                throw new IllegalArgumentException("agentPlatform is required");
-            }
             if (agentVersion == null || agentVersion.trim().isEmpty()) {
                 throw new IllegalArgumentException("agentVersion is required");
             }
             if (userEmail == null || userEmail.trim().isEmpty()) {
-                throw new IllegalArgumentException("userEmail is required");
+                throw new IllegalArgumentException("User email is required for message submission");
             }
 
             // Build request
@@ -176,7 +173,7 @@ public class MessagesApi {
             request.setSenderType(SenderType.HUMAN);
             request.setMessageType(MessageType.TEXT);
 
-            // Build agent data
+            // Build agent data (platform is optional; backend finds/creates by name + project when omitted)
             AgentData agentData = AgentData.builder()
                 .name(agentName)
                 .platform(agentPlatform)
@@ -312,9 +309,6 @@ public class MessagesApi {
             if (agentName == null || agentName.trim().isEmpty()) {
                 throw new IllegalArgumentException("agentName is required");
             }
-            if (agentPlatform == null || agentPlatform.trim().isEmpty()) {
-                throw new IllegalArgumentException("agentPlatform is required");
-            }
             if (agentVersion == null || agentVersion.trim().isEmpty()) {
                 throw new IllegalArgumentException("agentVersion is required");
             }
@@ -322,7 +316,7 @@ public class MessagesApi {
                 throw new IllegalArgumentException("replyMessageId is required for bot messages");
             }
             if (userEmail == null || userEmail.trim().isEmpty()) {
-                throw new IllegalArgumentException("userEmail is required");
+                throw new IllegalArgumentException("User email is required for message submission");
             }
             if (ragContext == null || ragContext.trim().isEmpty()) {
                 throw new IllegalArgumentException("ragContext is required for bot messages");
@@ -347,7 +341,7 @@ public class MessagesApi {
             request.setSenderType(SenderType.BOT);
             request.setMessageType(MessageType.TEXT);
 
-            // Build agent data
+            // Build agent data (platform is optional; backend finds/creates by name + project when omitted)
             AgentData agentData = AgentData.builder()
                 .name(agentName)
                 .platform(agentPlatform)
@@ -388,10 +382,14 @@ public class MessagesApi {
      *
      * POST /api/platform/messages/submit
      *
-     * @param request Complete message submission request object
+     * @param request Complete message submission request object (user email required, non-blank)
      * @return CompletableFuture with submission response
+     * @throws IllegalArgumentException if user email is null or blank
      */
     public CompletableFuture<PlatformMessageSubmissionResponse> submit(PlatformMessageSubmissionRequest request) {
+        if (request == null || request.getUserEmail() == null || request.getUserEmail().trim().isEmpty()) {
+            throw new IllegalArgumentException("User email is required for message submission");
+        }
         httpClient.ensureAuthenticated();
         return httpClient.post("/api/platform/messages/submit", request, PlatformMessageSubmissionResponse.class);
     }

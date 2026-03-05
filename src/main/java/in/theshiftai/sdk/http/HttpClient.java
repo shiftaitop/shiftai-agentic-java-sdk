@@ -1,13 +1,15 @@
 package in.theshiftai.sdk.http;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import in.theshiftai.sdk.dto.LatestFeedbackItemResponse;
+import in.theshiftai.sdk.dto.LatestFeedbacksResponse;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import okhttp3.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -275,6 +277,44 @@ public class HttpClient {
                         return objectMapper.readValue(json, responseType);
                     }
                     return null;
+                }
+            } catch (Exception e) {
+                log.error("Error executing POST request to {}", path, e);
+                throw new RuntimeException("IO error: " + e.getMessage(), e);
+            }
+        });
+    }
+
+    /**
+     * POST with Api-Key and normalize response to LatestFeedbacksResponse.
+     * Backend may return either { message, feedbacks } or a raw array; callers always get the same shape.
+     */
+    public CompletableFuture<LatestFeedbacksResponse> postForLatestFeedbacks(String path, Object requestBody) {
+        return CompletableFuture.supplyAsync(() -> {
+            try {
+                String jsonBody = requestBody != null ? objectMapper.writeValueAsString(requestBody) : "{}";
+                RequestBody body = RequestBody.create(jsonBody, JSON);
+                Request request = new Request.Builder()
+                        .url(baseUrl + path)
+                        .addHeader("Api-Key", apiKey != null ? apiKey : "")
+                        .post(body)
+                        .build();
+
+                try (Response response = client.newCall(request).execute()) {
+                    if (!response.isSuccessful()) {
+                        throw new RuntimeException("HTTP error: " + response.code());
+                    }
+                    if (response.body() == null) {
+                        return new LatestFeedbacksResponse(null, List.of());
+                    }
+                    String json = response.body().string();
+                    JsonNode node = objectMapper.readTree(json);
+                    if (node.isArray()) {
+                        java.util.List<LatestFeedbackItemResponse> list = objectMapper.convertValue(node,
+                                objectMapper.getTypeFactory().constructCollectionType(List.class, LatestFeedbackItemResponse.class));
+                        return new LatestFeedbacksResponse(null, list);
+                    }
+                    return objectMapper.treeToValue(node, LatestFeedbacksResponse.class);
                 }
             } catch (Exception e) {
                 log.error("Error executing POST request to {}", path, e);

@@ -25,6 +25,8 @@ E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sd
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\FeedbackSubmissionResponse.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\GetConversationsByEmailRequest.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\InitiateSessionResponse.java
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\LatestFeedbackItemResponse.java
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\LatestFeedbacksResponse.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\MessageType.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\PlatformMessage.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\PlatformMessageSubmissionRequest.java
