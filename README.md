@@ -358,6 +358,36 @@ Get latest feedbacks. Backend may return either an object or a raw array; the SD
 
 **Returns:** `LatestFeedbacksResponse` with optional `message` and `feedbacks` list. Each item has: messageId, username, agentName, conversationId, sender, message (human query), feedbackTitle, feedback, context, time (ISO 8601 string).
 
+#### User preferences (tenant-isolated, Api-Key required)
+
+**Categories:** `USER_PERSONAL` (tone, style, formatting), `METRICS` (visualization, content), `CALCULATION` (formulas, methods).
+
+#### `updateUserPreference(UserPreferenceUpdateRequest request)`
+Update one preference item, or remove it by setting value to `"DELETE"` (case-insensitive).
+
+**Parameters:**
+- `request`: `profileId` (UUID, **required**), `category` (String: USER_PERSONAL, METRICS, CALCULATION), `index` (Integer, 0-based), `value` (String: new text or "DELETE")
+
+**Return Type:** `CompletableFuture<UserPreferenceItemResponse>`
+
+#### `listUserPreferencesByEmail(String email)`
+List preferences for one user by email.
+
+**Parameters:**
+- `email` (String, **required**): User email in the tenant
+
+**Return Type:** `CompletableFuture<UserPreferenceListResponse>`
+
+**Returns:** Response with `userpreferences` array (list of profiles with userPreferences nested: userPersonalFeedbacks, metricsFeedbacks, calculationFeedbacks).
+
+#### `listAllUserPreferences(Integer limit)`
+List all preference profiles in the tenant.
+
+**Parameters:**
+- `limit` (Integer, **optional**): Max profiles to return. Default 50; if set, must be between 1 and 500.
+
+**Return Type:** `CompletableFuture<UserPreferenceListResponse>`
+
 #### `getDashboard()`
 Get project dashboard metrics.
 

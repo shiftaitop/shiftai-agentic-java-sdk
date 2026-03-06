@@ -39,6 +39,11 @@ E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sd
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\TopUserDTO.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\User.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\UserAnalyticsDTO.java
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\UserPreferenceItemResponse.java
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\UserPreferenceListAllRequest.java
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\UserPreferenceListRequest.java
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\UserPreferenceListResponse.java
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\UserPreferenceUpdateRequest.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\dto\WeaviateVector.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\http\HttpClient.java
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java\in\theshiftai\sdk\ShiftaiagenticinfraClient.java

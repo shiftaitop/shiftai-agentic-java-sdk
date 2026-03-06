@@ -3,6 +3,8 @@ in\theshiftai\sdk\dto\FeedbackSubmissionResponse.class
 in\theshiftai\sdk\api\SessionApi.class
 in\theshiftai\sdk\dto\UserAnalyticsDTO.class
 in\theshiftai\sdk\http\HttpClient$2.class
+in\theshiftai\sdk\dto\LatestFeedbacksResponse.class
+in\theshiftai\sdk\dto\UserPreferenceListRequest.class
 in\theshiftai\sdk\dto\EndConversationResponse.class
 in\theshiftai\sdk\api\AgentsApi$AgentBuilder.class
 in\theshiftai\sdk\dto\MessageType.class
@@ -19,6 +21,8 @@ in\theshiftai\sdk\dto\DeleteConversationRequest.class
 in\theshiftai\sdk\dto\DeleteMessageRequest.class
 in\theshiftai\sdk\config\ClientConfig$Builder.class
 in\theshiftai\sdk\dto\InitiateSessionResponse.class
+in\theshiftai\sdk\dto\UserPreferenceListAllRequest.class
+in\theshiftai\sdk\dto\UserPreferenceListResponse.class
 in\theshiftai\sdk\dto\CreateUserRequest.class
 in\theshiftai\sdk\api\internal\InternalApi.class
 in\theshiftai\sdk\dto\PlatformMessageSubmissionResponse.class
@@ -30,6 +34,7 @@ in\theshiftai\sdk\dto\PlatformRegistrationResponse.class
 in\theshiftai\sdk\dto\GetConversationsByEmailRequest.class
 in\theshiftai\sdk\dto\SenderType.class
 in\theshiftai\sdk\dto\ConversationMessageResponse.class
+in\theshiftai\sdk\dto\UserPreferenceItemResponse.class
 in\theshiftai\sdk\api\AgentsApi.class
 in\theshiftai\sdk\http\HttpClient$3.class
 in\theshiftai\sdk\api\MessagesApi$BotMessageBuilder.class
@@ -38,10 +43,12 @@ in\theshiftai\sdk\config\ClientConfig.class
 in\theshiftai\sdk\http\HttpClient.class
 in\theshiftai\sdk\ShiftaiagenticinfraClient$Builder.class
 in\theshiftai\sdk\api\ConversationsApi.class
+in\theshiftai\sdk\dto\UserPreferenceItemResponse$UserPreferencesPayload.class
 in\theshiftai\sdk\ShiftaiagenticinfraClient.class
 in\theshiftai\sdk\api\MessagesApi$HumanMessageBuilder.class
 in\theshiftai\sdk\api\AnalyticsApi$FeedbackBuilder.class
 in\theshiftai\sdk\dto\FeedbackSubmissionRequest.class
+in\theshiftai\sdk\dto\LatestFeedbackItemResponse.class
 in\theshiftai\sdk\dto\EndConversationRequest.class
 in\theshiftai\sdk\dto\AgentData$AgentDataBuilder.class
 in\theshiftai\sdk\dto\CreateAgentRequest.class
@@ -50,5 +57,6 @@ in\theshiftai\sdk\dto\DashboardMetricsDTO.class
 in\theshiftai\sdk\dto\WeaviateVector.class
 in\theshiftai\sdk\dto\TopAgentDTO.class
 in\theshiftai\sdk\api\PlatformApi.class
+in\theshiftai\sdk\dto\UserPreferenceUpdateRequest.class
 in\theshiftai\sdk\api\UsersApi.class
 in\theshiftai\sdk\dto\FeedbackDTO.class

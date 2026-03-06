@@ -19,11 +19,11 @@
 -docencoding
 'UTF-8'
 -doctitle
-'ShiftAI Agentic Infra Java SDK 0.0.7 API'
+'ShiftAI Agentic Infra Java SDK 0.0.9 API'
 -use
 -version
 -windowtitle
-'ShiftAI Agentic Infra Java SDK 0.0.7 API'
+'ShiftAI Agentic Infra Java SDK 0.0.9 API'
 in.theshiftai.sdk.api
 in.theshiftai.sdk.api.internal
 in.theshiftai.sdk.config
@@ -44,21 +44,21 @@ C:\Users\tsama\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.2\jac
 C:\Users\tsama\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.17.2\jackson-datatype-jsr310-2.17.2.jar = 1769060337986
 C:\Users\tsama\.m2\repository\org\slf4j\slf4j-api\2.0.9\slf4j-api-2.0.9.jar = 1769060338097
 E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\src\main\java = 1767962597298
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\generated-sources\annotations = 1772195869935
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\allclasses-index.html = 1772195878784
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\allpackages-index.html = 1772195878791
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\element-list = 1772195878445
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\help-doc.html = 1772195878867
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\index-all.html = 1772195878858
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\index.html = 1772195878734
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\jquery-ui.overrides.css = 1772195878880
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\member-search-index.js = 1772195878802
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\module-search-index.js = 1772195878794
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\overview-summary.html = 1772195878862
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\overview-tree.html = 1772195878727
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\package-search-index.js = 1772195878795
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\script.js = 1772195878871
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\search.js = 1772195878873
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\stylesheet.css = 1772195878869
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\tag-search-index.js = 1772195878804
-E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\type-search-index.js = 1772195878798
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\generated-sources\annotations = 1772801482077
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\allclasses-index.html = 1772801492549
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\allpackages-index.html = 1772801492554
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\element-list = 1772801491899
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\help-doc.html = 1772801492732
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\index-all.html = 1772801492719
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\index.html = 1772801492432
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\jquery-ui.overrides.css = 1772801492750
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\member-search-index.js = 1772801492567
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\module-search-index.js = 1772801492558
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\overview-summary.html = 1772801492723
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\overview-tree.html = 1772801492418
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\package-search-index.js = 1772801492562
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\script.js = 1772801492737
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\search.js = 1772801492739
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\stylesheet.css = 1772801492735
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\tag-search-index.js = 1772801492569
+E:\SHIFT AI\sdk-java\shiftaiagenticinfra-sdk-java\target\apidocs\type-search-index.js = 1772801492564

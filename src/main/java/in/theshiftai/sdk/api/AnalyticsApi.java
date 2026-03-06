@@ -217,4 +217,50 @@ public class AnalyticsApi {
         Object body = timeperiodHours == null ? Map.of() : Map.of("timeperiod", timeperiodHours);
         return httpClient.postForLatestFeedbacks("/api/platform/feedbacks/latest", body);
     }
+
+    // ---------- User preferences (tenant-isolated, Api-Key required) ----------
+
+    /**
+     * Update one user preference item. Use value "DELETE" (case-insensitive) to remove the item at the given index.
+     * POST /api/analytics/user-preferences/update
+     *
+     * @param request profileId (required), category (USER_PERSONAL, METRICS, CALCULATION), index (0-based), value (new text or "DELETE")
+     * @return CompletableFuture with updated profile (UserPreferenceItemResponse)
+     */
+    public CompletableFuture<UserPreferenceItemResponse> updateUserPreference(UserPreferenceUpdateRequest request) {
+        httpClient.ensureAuthenticated();
+        return httpClient.post("/api/analytics/user-preferences/update", request, UserPreferenceItemResponse.class);
+    }
+
+    /**
+     * List user preferences for one user by email.
+     * POST /api/analytics/user-preferences/list
+     *
+     * @param email User email in the tenant (required, non-blank)
+     * @return CompletableFuture with userpreferences list (may be empty)
+     */
+    public CompletableFuture<UserPreferenceListResponse> listUserPreferencesByEmail(String email) {
+        if (email == null || email.trim().isEmpty()) {
+            throw new IllegalArgumentException("email is required");
+        }
+        httpClient.ensureAuthenticated();
+        UserPreferenceListRequest request = new UserPreferenceListRequest(email.trim());
+        return httpClient.post("/api/analytics/user-preferences/list", request, UserPreferenceListResponse.class);
+    }
+
+    /**
+     * List all user preferences in the tenant with optional limit.
+     * POST /api/analytics/user-preferences/list/all
+     *
+     * @param limit Optional; max profiles to return. Default 50, must be between 1 and 500 if set.
+     * @return CompletableFuture with userpreferences list
+     */
+    public CompletableFuture<UserPreferenceListResponse> listAllUserPreferences(Integer limit) {
+        httpClient.ensureAuthenticated();
+        if (limit != null && (limit < 1 || limit > 500)) {
+            throw new IllegalArgumentException("limit must be a positive integer between 1 and 500");
+        }
+        UserPreferenceListAllRequest request = limit == null ? new UserPreferenceListAllRequest() : new UserPreferenceListAllRequest(limit);
+        return httpClient.post("/api/analytics/user-preferences/list/all", request, UserPreferenceListResponse.class);
+    }
 }
