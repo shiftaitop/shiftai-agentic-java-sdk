@@ -23,6 +23,11 @@ public class PlatformMessageSubmissionResponse {
     private String conversationTitle;  // LLM-generated conversation title
     private String cacheResponse;  // Cached answer from cache API
     private Boolean cacheHit;  // Whether a cache hit occurred
+    /**
+     * Optional org knowledge context returned for HUMAN messages.
+     * May be null if org knowledge is unavailable or not configured.
+     */
+    private String orgContext;
 
     public PlatformMessageSubmissionResponse() {}
 
@@ -44,6 +49,7 @@ public class PlatformMessageSubmissionResponse {
         private String conversationTitle;
         private String cacheResponse;
         private Boolean cacheHit;
+        private String orgContext;
 
         public PlatformMessageSubmissionResponseBuilder success(boolean success) { this.success = success; return this; }
         public PlatformMessageSubmissionResponseBuilder messageId(UUID messageId) { this.messageId = messageId; return this; }
@@ -57,6 +63,7 @@ public class PlatformMessageSubmissionResponse {
         public PlatformMessageSubmissionResponseBuilder conversationTitle(String conversationTitle) { this.conversationTitle = conversationTitle; return this; }
         public PlatformMessageSubmissionResponseBuilder cacheResponse(String cacheResponse) { this.cacheResponse = cacheResponse; return this; }
         public PlatformMessageSubmissionResponseBuilder cacheHit(Boolean cacheHit) { this.cacheHit = cacheHit; return this; }
+        public PlatformMessageSubmissionResponseBuilder orgContext(String orgContext) { this.orgContext = orgContext; return this; }
 
         public PlatformMessageSubmissionResponse build() {
             PlatformMessageSubmissionResponse response = new PlatformMessageSubmissionResponse();
@@ -72,6 +79,7 @@ public class PlatformMessageSubmissionResponse {
             response.conversationTitle = this.conversationTitle;
             response.cacheResponse = this.cacheResponse;
             response.cacheHit = this.cacheHit;
+            response.orgContext = this.orgContext;
             return response;
         }
     }
@@ -112,4 +120,11 @@ public class PlatformMessageSubmissionResponse {
 
     public Boolean getCacheHit() { return cacheHit; }
     public void setCacheHit(Boolean cacheHit) { this.cacheHit = cacheHit; }
+
+    /**
+     * Optional org knowledge context returned for HUMAN messages.
+     * May be null if org knowledge is unavailable or not configured.
+     */
+    public String getOrgContext() { return orgContext; }
+    public void setOrgContext(String orgContext) { this.orgContext = orgContext; }
 }

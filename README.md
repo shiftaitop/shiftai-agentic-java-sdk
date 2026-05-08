@@ -122,6 +122,7 @@ PlatformMessageSubmissionResponse msgResponse = client.messages()
     .get();
 
 System.out.println("Message ID: " + msgResponse.getMessageId());
+System.out.println("Org Context: " + msgResponse.getOrgContext()); 
 ```
 
 ## Session Management
@@ -206,6 +207,9 @@ Send a human message using the builder pattern.
 
 **Return Type:** `CompletableFuture<PlatformMessageSubmissionResponse>`
 
+**Response Notes:**
+- `orgContext` (String, optional): Organization knowledge context for HUMAN submissions. May be `null` when org knowledge is unavailable or not configured.
+
 **Example:**
 ```java
 client.messages().sendHumanMessage()
@@ -257,6 +261,9 @@ Send a bot response using the builder pattern.
 Get all messages for the authenticated project.
 
 **Return Type:** `CompletableFuture<List<PlatformMessage>>`
+
+**Message Notes:**
+- `PlatformMessage.orgContext` (String, optional): Persisted organization knowledge context on the message. May be `null` when org knowledge is unavailable or not configured.
 
 #### `getById(UUID messageId)`
 Get a specific message by ID.

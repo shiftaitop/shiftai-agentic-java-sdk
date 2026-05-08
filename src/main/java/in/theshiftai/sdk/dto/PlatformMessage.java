@@ -12,6 +12,11 @@ public class PlatformMessage {
     private String message;
     private String senderType;
     private String messageType;
+    /**
+     * Optional org knowledge context persisted with the message.
+     * May be null if org knowledge is unavailable or not configured.
+     */
+    private String orgContext;
 
     public PlatformMessage() {}
 
@@ -27,4 +32,11 @@ public class PlatformMessage {
 
     public String getMessageType() { return messageType; }
     public void setMessageType(String messageType) { this.messageType = messageType; }
+
+    /**
+     * Optional org knowledge context persisted with the message.
+     * May be null if org knowledge is unavailable or not configured.
+     */
+    public String getOrgContext() { return orgContext; }
+    public void setOrgContext(String orgContext) { this.orgContext = orgContext; }
 }
